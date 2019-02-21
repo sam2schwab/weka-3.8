@@ -21,6 +21,7 @@ package weka.classifiers.evaluation;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.Arrays;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -54,6 +55,7 @@ public class EvaluationTest extends TestCase {
     Instances inst = new Instances(new StringReader(DATA));
     inst.setClassIndex(inst.numAttributes() - 1);
     Evaluation eval = new Evaluation(inst);
+    eval.toggleEvalMetrics(Arrays.asList("coverage","region size"));
 
     for (int i = 0; i < inst.numInstances(); i++) {
       eval.evaluateModelOnceAndRecordPrediction(PREDS[i], inst.instance(i));
