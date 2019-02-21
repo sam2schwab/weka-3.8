@@ -1,4 +1,16 @@
 language: java
 
-script:
- - mvn -f ./weka/pom.xml compile
+jobs:
+  include:
+    - stage: compile
+      script: mvn -f ./weka/pom.xml compile
+    - stage: test
+      script: mvn -f ./weka/pom.xml test
+    - stage: deploy
+      script: echo "Deploying to GitHub releases ..."
+      deploy:
+        provider: releases
+        api_key: $GITHUB_OAUTH_TOKEN
+        skip_cleanup: true
+        on:
+          tags: true
