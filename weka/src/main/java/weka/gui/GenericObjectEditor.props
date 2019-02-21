@@ -437,7 +437,6 @@ weka.core.neighboursearch.kdtrees.KDTreeNodeSplitter=\
 # Lists the Associators I want to choose from
 weka.associations.Associator=\
  weka.associations.Apriori,\
- weka.associations.FilteredAssociator,\
  weka.associations.GeneralizedSequentialPatterns,\
  weka.associations.HotSpot,\
  weka.associations.PredictiveApriori,\
