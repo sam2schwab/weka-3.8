@@ -1,0 +1,15 @@
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  image: maven
+  script:
+    - mvn -f ./weka/pom.xml compile
+
+test:
+  stage: test
+  image: maven
+  script:
+    - mvn -f ./weka/pom.xml test
